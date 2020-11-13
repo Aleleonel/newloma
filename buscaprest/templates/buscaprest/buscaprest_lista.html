@@ -1,0 +1,90 @@
+{% extends "base.html" %}
+{% load static %}
+{% block css %}
+{% endblock css %}
+
+{% block content %}
+<link rel="stylesheet" type="text/css"  href="{% static 'buscaprest/css/style.css' %}" />
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+
+<body>
+	 <div class="jumbotron">
+      <div class="container">
+            <div class="page-header">
+                <h1>Oficinas
+                    <span class="pull-right">
+                        <a href="{% url 'buscaprest:prestadores_add' %}">
+                            <button type="button" class="btn btn-primary">
+                                <span class="fa fa-plus"></span>Adicionar
+                            </button>
+                        </a>
+                    </span>
+                </h1>
+
+                <li class="right">
+                     <form class="searchbox" method="GET" id="search-form">
+
+                        <input name="search" type="search" class="form-control ds-input" id="search-input"
+                           placeholder="Pesquisa..." aria-label="Procurar por..."
+                           autocomplete="off" spellcheck="false" role="combobox"
+                           aria-autocomplete="list" aria-expanded="false"
+                           aria-owns="algolia-autocomplete-listbox-0"
+                           dir="auto" style="position: relative;
+                           vertical-align: top;">
+                         <button type="button" class="btn btn-primary">categoria</button>
+
+                        <input name="search2" type="search" class="form-control ds-input" id=""
+                           placeholder="Pesquisa" aria-label="Procurar por..."
+                           autocomplete="off" spellcheck="false" role="combobox"
+                           aria-autocomplete="list" aria-expanded="false"
+                           aria-owns="algolia-autocomplete-listbox-0"
+                           dir="auto" style="position: relative;
+                           vertical-align: top;">
+                         <button type="button" class="btn btn-primary">cidade</button>
+                     </form>
+                </li>
+
+
+
+                <div class="container"></div>
+
+                {% if object_list %}
+                    <table class="table-striped">
+                        <thead>
+                        <tr>
+                            <th>Categoria</th>
+                            <th>Prestador</th>
+                            <th>Endereço</th>
+                            <th>Bairro</th>
+                            <th>CEP</th>
+                            <th>Cidade</th>
+                            <th>Telefone</th>
+                        </tr>
+                        </thead>
+                        <tbody>
+                        {% for object in object_list %}
+                            <tr>
+                                <td>{{object.categoria}}</td>
+                                <td>
+                                    <a href="{{ object.get_absolute_url }}">{{object.prestador}}</a>
+                                </td>
+                                <td>{{object.endereco}}</td>
+                                <td>{{object.bairro}}</td>
+                                <td>{{object.cep}}</td>
+                                <td>{{object.cidade}}</td>
+                                <td>{{object.telefone2}}</td>
+                            </tr>
+                        {% endfor %}
+                        </tbody>
+                    </table>
+                {% else %}
+                    <p class="alert alert-warning">Esta categoria não existe na lista ou foi digitada incorretamente!</p>
+                {% endif %}
+              </div>
+          </div>
+         {% include "includes/pagination.html" %}
+     </div>
+</body>
+
+{% endblock %}

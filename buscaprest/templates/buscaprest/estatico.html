@@ -1,0 +1,55 @@
+{% extends "base.html" %}
+{% load static %}
+{% block css %}
+{% endblock css %}
+
+{% block content %}
+<link rel="stylesheet" type="text/css"  href="{% static 'buscaprest/css/style.css' %}" />
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+
+<body>
+	 <div class="jumbotron">
+      <div class="container">
+            <div class="page-header">
+                <h1>Mapas
+                    <span class="pull-right">
+                        <a href="{% url 'buscaprest:prestadores_add' %}">
+                            <button type="button" class="btn btn-primary">
+                                <span class="fa fa-plus"></span>Adicionar
+                            </button>
+                        </a>
+                    </span>
+                </h1>
+                <div class="container"></div>
+
+                {% if local %}
+                    <table class="table-striped">
+                        <thead>
+                        <tr>
+                            <th>Endereço</th>
+                            <th>Bairro</th>
+                            <th>Cidade</th>
+                            <th>UF</th>
+                            <th>Cep</th>
+                        </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>{{local.end}}-</td>
+                                <td>{{local.bairro}}-</td>
+                                <td>{{local.cidade}}-</td>
+                                <td>{{local.uf}}-</td>
+                                <td>{{local.cep}}</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                {% else %}
+                    <p class="alert alert-warning">Esta categoria não existe na lista ou foi digitada incorretamente!</p>
+                {% endif %}
+              </div>
+          </div>
+     </div>
+</body>
+
+{% endblock %}

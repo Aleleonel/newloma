@@ -1,0 +1,91 @@
+{% extends "base.html" %}
+
+{% block content %}
+<a href="{% url 'buscaprest:buscaprest_lista' %}">Voltar</a>
+    <h1>{{ object }}
+        <span class="pull-right">
+            <a href="{% url 'buscaprest:prestadores_edit' object.pk  %}">
+                <button type="button" class="btn btn-success">
+                    <span class="fa fa-pencil"></span> Editar
+                </button>
+            </a>
+        </span>
+    </h1>
+<span class="pull-right">
+    <a href="{% url 'buscaprest:prestadores_delete' object.pk  %}">
+        <button type="button" class="btn btn-danger">
+            <span class="fa fa-pencil"></span> Deletar
+        </button>
+    </a>
+</span>
+<div class="col-sm-6">
+    <table class="table table-user-information">
+
+            <tbody>
+            {% if local %}
+            <tr>
+                    <th class="text-right">Categoria</th>
+                    <td>{{object.categoria}}</td>
+                </tr>
+                <tr>
+                    <th class="text-right">Prestador</th>
+                    <td>{{object.prestador}}</td>
+                </tr>
+                <tr>
+                    <th class="text-right">Endereço</th>
+                    <td>{{local.end}}</td>
+                </tr>
+                <tr>
+                    <th class="text-right">Bairro</th>
+                    <td>{{local.bairro}}</td>
+                </tr>
+                <tr>
+                    <th class="text-right">Cidade</th>
+                    <td>{{local.cidade}}</td>
+                </tr>
+                <tr>
+                    <th class="text-right">UP</th>
+                    <td>{{local.uf}}</td>
+                </tr>
+                <tr>
+                    <th class="text-right">CEP</th>
+                    <td>{{local.cep}}</td>
+                </tr>
+
+            {% else %}
+                <tr>
+                    <th class="text-right">Categoria</th>
+                    <td>{{object.categoria}}</td>
+                </tr>
+                <tr>
+                    <th class="text-right">Prestador</th>
+                    <td>{{object.prestador}}</td>
+                </tr>
+                <tr>
+                    <th class="text-right">Endereço</th>
+                    <td>{{object.endereco}}</td>
+                </tr>
+                <tr>
+                    <th class="text-right">Bairro</th>
+                    <td>{{object.bairro}}</td>
+                </tr>
+                <tr>
+                    <th class="text-right">Cidade</th>
+                    <td>{{object.cidade}}</td>
+                </tr>
+
+                <tr>
+                    <th class="text-right">CEP</th>
+                    <td>{{object.cep}}</td>
+                </tr>
+                <tr>
+                    <th class="text-right">Telefone</th>
+                    <td>{{object.telefone2}}</td>
+                </tr>
+
+            {% endif %}
+            </tbody>
+    </table>
+
+</div>
+{% endblock content %}

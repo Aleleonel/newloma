@@ -1,0 +1,24 @@
+{% extends "base.html" %}
+{% load static %}
+{% block content %}
+
+<link rel="stylesheet" type="text/css"  href="{% static 'buscaprest/css/style.css' %}" />
+<body>
+	 <div class="jumbotron">
+      <div class="container">
+         <div class="container">
+        <h1>Editar '{{prestador.name}}'</h1>
+
+        <hr>
+        <form action="{% url 'buscaprest:prestadores_delete' prestador.pk %}" method="POST">
+            {% csrf_token %}
+            <input type="submit" class="btn btn-danger" value='Deletar post'>
+        </form>
+    </div>
+        <p>
+          <a href="https://github.com/Aleleonel">Veja no Github</a>
+        </p>
+      </div>
+  </div>
+</body>
+{% endblock content %}

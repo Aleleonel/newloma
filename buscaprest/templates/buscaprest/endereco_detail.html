@@ -1,0 +1,36 @@
+{% extends "base.html" %}
+
+{% block content %}
+<a href="{% url 'buscaprest:buscaprest_lista' %}">Voltar</a>
+    <h1>{{ object }}
+
+    </h1>
+<div class="col-sm-6">
+    <table class="table table-user-information">
+        <tbody>
+        <tr>
+            <th class="text-right">end</th>
+            <td>{{object.end}}</td>
+        </tr>
+        <tr>
+            <th class="text-right">bairro</th>
+            <td>{{object.bairro}}</td>
+        </tr>
+        <tr>
+            <th class="text-right">cidade</th>
+            <td>{{object.cidade}}</td>
+        </tr>
+        <tr>
+            <th class="text-right">uf</th>
+            <td>{{object.uf}}</td>
+        </tr>
+        <tr>
+            <th class="text-right">CEP</th>
+            <td>{{object.cep}}</td>
+        </tr>
+
+        </tbody>
+    </table>
+
+</div>
+{% endblock content %}
