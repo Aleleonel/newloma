@@ -1,0 +1,92 @@
+{% extends "base.html" %}
+{% load static %}
+{% block css %}
+{% endblock css %}
+
+{% block content %}
+<link rel="stylesheet" type="text/css"  href="{% static 'veiculos/css/style.css' %}" />
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+
+<body>
+	 <div class="jumbotron">
+      <div class="container">
+            <div class="page-header">
+                <h1>Veiculos
+                    <span class="pull-right">
+                        <a href="{% url 'veiculos:veiculos_add' %}">
+                            <button type="button" class="btn btn-primary">
+                                <span class="fa fa-plus"></span>Adicionar
+                            </button>
+                        </a>
+                    </span>
+                </h1>
+
+                <li class="right">
+                     <form class="searchbox" method="GET" id="search-form">
+
+                        <input name="search" type="search" class="form-control ds-input" id="search-input"
+                           placeholder="Pesquisa..." aria-label="Procurar por..."
+                           autocomplete="off" spellcheck="false" role="combobox"
+                           aria-autocomplete="list" aria-expanded="false"
+                           aria-owns="algolia-autocomplete-listbox-0"
+                           dir="auto" style="position: relative;
+                           vertical-align: top;">
+                         <button type="submit" class="btn btn-primary">Placa</button>
+
+                        <input name="search2" type="search" class="form-control ds-input" id=""
+                           placeholder="Pesquisa" aria-label="Procurar por..."
+                           autocomplete="off" spellcheck="false" role="combobox"
+                           aria-autocomplete="list" aria-expanded="false"
+                           aria-owns="algolia-autocomplete-listbox-0"
+                           dir="auto" style="position: relative;
+                           vertical-align: top;">
+                         <button type="submit" class="btn btn-primary">Nr.Renavam</button>
+                     </form>
+                </li>
+
+
+
+                <div class="container"></div>
+
+                {% if object_list %}
+                    <table class="table-striped">
+                        <thead>
+                        <tr>
+                            <th>Marca/Modelo</th>
+                            <th>Placa</th>
+                            <th>Chassi</th>
+                            <th>Ano Fab.</th>
+                            <th>Modelo</th>
+                            <th>Renavam</th>
+                            <th>Cor</th>
+                            <th>Nr. Rastreador</th>
+                        </tr>
+                        </thead>
+                        <tbody>
+                        {% for object in object_list %}
+                            <tr>
+                                <td>{{object.marca}}</td>
+                                <td>
+                                    <a href="{{ object.get_absolute_url }}">{{object.placa}}</a>
+                                </td>
+                                <td>{{object.chassi}}</td>
+                                <td>{{object.ano_fab}}</td>
+                                <td>{{object.modelo}}</td>
+                                <td>{{object.renavam}}</td>
+                                <td>{{object.cor}}</td>
+                                <td>{{object.rastreador}}</td>
+                            </tr>
+                        {% endfor %}
+                        </tbody>
+                    </table>
+                {% else %}
+                    <p class="alert alert-warning">Este Veiculo não existe na lista ou foi digitada incorretamente!</p>
+                {% endif %}
+              </div>
+          </div>
+         {% include "includes/pagination.html" %}
+     </div>
+</body>
+
+{% endblock %}

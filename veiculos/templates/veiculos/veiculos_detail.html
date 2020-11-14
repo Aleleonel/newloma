@@ -1,0 +1,62 @@
+{% extends "base.html" %}
+
+{% block content %}
+<a href="{% url 'veiculos:veiculos_lista' %}">Voltar</a>
+    <h1>{{ object }}
+        <span class="pull-right">
+            <a href="{% url 'veiculos:veiculos_edit' object.pk  %}">
+                <button type="button" class="btn btn-success">
+                    <span class="fa fa-pencil"></span> Editar
+                </button>
+            </a>
+        </span>
+    </h1>
+<span class="pull-right">
+    <a href="{% url 'veiculos:veiculos_delete' object.pk  %}">
+        <button type="button" class="btn btn-danger">
+            <span class="fa fa-pencil"></span> Deletar
+        </button>
+    </a>
+</span>
+<div class="col-sm-6">
+    <table class="table table-user-information">
+
+            <tbody>
+
+            <tr>
+                    <th class="text-right">Marca/Modelo</th>
+                    <td>{{object.marca}}</td>
+                </tr>
+                <tr>
+                    <th class="text-right">Placa</th>
+                    <td>{{object.placa}}</td>
+                </tr>
+                <tr>
+                    <th class="text-right">Chassi</th>
+                    <td>{{object.chassi}}</td>
+                </tr>
+                <tr>
+                    <th class="text-right">Ano</th>
+                    <td>{{object.ano_fab}}</td>
+                </tr>
+                <tr>
+                    <th class="text-right">Modelo</th>
+                    <td>{{object.modelo}}</td>
+                </tr>
+                <tr>
+                    <th class="text-right">Renavam</th>
+                    <td>{{object.renavam}}</td>
+                </tr>
+                <tr>
+                    <th class="text-right">Cor</th>
+                    <td>{{object.cor}}</td>
+                </tr>
+                <tr>
+                    <th class="text-right">Nr. Rastreador</th>
+                    <td>{{object.rastreador}}</td>
+                </tr>
+            </tbody>
+    </table>
+
+</div>
+{% endblock content %}

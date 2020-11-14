@@ -20,4 +20,5 @@ urlpatterns = [
     path('admin/', admin.site.urls),
     path('', include('buscaprest.urls')),
     path('rastreadores/', include('rastreadores.urls')),
+    path('veiculos/', include('veiculos.urls')),
 ]
