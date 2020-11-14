@@ -1,0 +1,19 @@
+body {
+  background-color: lightblue;
+}
+
+h1 {
+  color: navy;
+  margin-left: 30px;
+}
+
+input {
+    display: inline-block;
+
+    min-width:10%;
+}
+
+.ds-input {
+    display: inline-block;
+    width:200px;
+}
