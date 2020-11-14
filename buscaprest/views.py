@@ -32,39 +32,30 @@ def my_static(request, pk):
         return render(request, template_name, context)
 
 
+# class PrestadoresList(ListView):
+#     model = Prestador
+#     template_name = 'buscaprest/buscaprest_lista.html'
+#     paginate_by = 10
+
+
 def lista_search(request):
     template_name = 'buscaprest/buscaprest_lista.html'
     search = request.GET.get('search')
     search2 = request.GET.get('search2')
-    if search and search2:
+
+    if search or search2:
 
         objects_list = Prestador.objects.filter(categoria__icontains=search, cidade__icontains=search2)
         context = {
             'object_list': objects_list
         }
         return render(request, template_name, context)
-
-    elif search:
-
-        objects_list = Prestador.objects.filter(categoria__icontains=search)
-        context = {
-            'object_list': objects_list
-        }
-        return render(request, template_name, context)
-
     else:
         objects_list = Prestador.objects.all()
         context = {
             'object_list': objects_list
         }
-
-    return render(request, template_name, context)
-
-
-class PrestadoresList(ListView):
-    model = Prestador
-    template_name = 'buscaprest/buscaprest_lista.html'
-    paginate_by = 10
+        return render(request, template_name, context)
 
 
 def prestadores_detail(request, pk):

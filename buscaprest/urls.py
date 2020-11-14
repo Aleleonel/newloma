@@ -5,7 +5,8 @@ app_name = 'buscaprest'
 
 urlpatterns = [
     path('', v.home, name='home'),
-    path('lista/', v.PrestadoresList.as_view(), name='buscaprest_lista'),
+    # path('lista/', v.PrestadoresList.as_view(), name='buscaprest_lista'),
+    path('lista/', v.lista_search, name='buscaprest_lista'),
     path('add/', v.PrestadorCreate.as_view(), name='prestadores_add'),
     path('<int:pk>/', v.prestadores_detail, name='prestadores_detail'),
     path('<int:pk>/edit/', v.PrestadorUpdate.as_view(), name='prestadores_edit'),
