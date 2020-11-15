@@ -1,0 +1,53 @@
+{% extends "base.html" %}
+
+{% block content %}
+<a href="{% url 'endereco:enderecos_lista' %}">Voltar</a>
+    <h1>{{ object }}
+        <span class="pull-right">
+            <a href="{% url 'endereco:enderecos_edit' object.pk  %}">
+                <button type="button" class="btn btn-success">
+                    <span class="fa fa-pencil"></span> Editar
+                </button>
+            </a>
+        </span>
+    </h1>
+<span class="pull-right">
+    <a href="{% url 'endereco:enderecos_delete' object.pk  %}">
+        <button type="button" class="btn btn-danger">
+            <span class="fa fa-pencil"></span> Deletar
+        </button>
+    </a>
+</span>
+<div class="col-sm-6">
+    <table class="table table-user-information">
+
+            <tbody>
+                <tr>
+                    <th class="text-right">Endereço</th>
+                    <td>{{object.rua}}</td>
+                </tr>
+                <tr>
+                    <th class="text-right">Numero</th>
+                    <td>{{object.numero}}</td>
+                </tr>
+                <tr>
+                    <th class="text-right">Complemento</th>
+                    <td>{{local.complemento}}</td>
+                </tr>
+                <tr>
+                    <th class="text-right">Bairro</th>
+                    <td>{{local.bairro}}</td>
+                </tr>
+                <tr>
+                    <th class="text-right">Cidade</th>
+                    <td>{{local.cidade}}</td>
+                </tr>
+                <tr>
+                    <th class="text-right">País</th>
+                    <td>{{local.pais}}</td>
+                </tr>
+            </tbody>
+    </table>
+
+</div>
+{% endblock content %}

@@ -1,0 +1,73 @@
+{% extends "base.html" %}
+
+{% block content %}
+<a href="{% url 'clientes:clientes_lista' %}">Voltar</a>
+    <h1>{{ object }}
+        <span class="pull-right">
+            <a href="{% url 'clientes:clientes_edit' object.pk  %}">
+                <button type="button" class="btn btn-success">
+                    <span class="fa fa-pencil"></span> Editar
+                </button>
+            </a>
+        </span>
+    </h1>
+<span class="pull-right">
+    <a href="{% url 'clientes:clientes_delete' object.pk  %}">
+        <button type="button" class="btn btn-danger">
+            <span class="fa fa-pencil"></span> Deletar
+        </button>
+    </a>
+</span>
+<div class="col-sm-6">
+    <table class="table table-user-information">
+
+            <tbody>
+                <tr>
+                    <th class="text-right">Nome</th>
+                    <td>{{object.nome}}</td>
+                </tr>
+                <tr>
+                    <th class="text-right">CPF</th>
+                    <td>{{object.cpf}}</td>
+                </tr>
+                <tr>
+                    <th class="text-right">Data Nascimento</th>
+                    <td>{{local.nasc}}</td>
+                </tr>
+                <tr>
+                    <th class="text-right">Celular</th>
+                    <td>{{local.tel01}}</td>
+                </tr>
+                <tr>
+                    <th class="text-right">Telefone</th>
+                    <td>{{local.tel02}}</td>
+                </tr>
+                <tr>
+                    <th class="text-right">E-mail</th>
+                    <td>{{local.email}}</td>
+                </tr>
+                <tr>
+                    <th class="text-right">Contato</th>
+                    <td>{{local.contato}}</td>
+                </tr>
+                <tr>
+                    <th class="text-right">Veiclo Tipo</th>
+                    <td>{{local.vtipo}}</td>
+                </tr>
+                <tr>
+                    <th class="text-right">Endereço</th>
+                    <td>{{local.endereco}}</td>
+                </tr>
+                <tr>
+                    <th class="text-right">Veículo</th>
+                    <td>{{local.veiculo}}</td>
+                </tr>
+                <tr>
+                    <th class="text-right">Data de Cadastro</th>
+                    <td>{{local.cadastro}}</td>
+                </tr>
+            </tbody>
+    </table>
+
+</div>
+{% endblock content %}

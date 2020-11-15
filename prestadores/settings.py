@@ -46,6 +46,8 @@ INSTALLED_APPS = [
     'buscaprest',
     'rastreadores',
     'veiculos',
+    'clientes',
+    'endereco',
 ]
 
 MIDDLEWARE = [

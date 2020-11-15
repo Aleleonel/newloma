@@ -1,0 +1,75 @@
+{% extends "base.html" %}
+{% load static %}
+{% block css %}
+{% endblock css %}
+
+{% block content %}
+<link rel="stylesheet" type="text/css"  href="{% static 'endereco/css/style.css' %}" />
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+
+<body>
+	 <div class="jumbotron">
+      <div class="container">
+            <div class="page-header">
+                <h1>Enderecos
+                    <span class="pull-right">
+                        <a href="{% url 'endereco:endereco_add' %}">
+                            <button type="button" class="btn btn-primary">
+                                <span class="fa fa-plus"></span>Adicionar
+                            </button>
+                        </a>
+                    </span>
+                </h1>
+
+                <li class="right">
+                     <form class="searchbox" method="GET" id="search-form">
+
+                        <input name="search" type="search" class="form-control ds-input" id="search-input"
+                           placeholder="Pesquisa..." aria-label="Procurar por..."
+                           autocomplete="off" spellcheck="false" role="combobox"
+                           aria-autocomplete="list" aria-expanded="false"
+                           aria-owns="algolia-autocomplete-listbox-0"
+                           dir="auto" style="position: relative;
+                           vertical-align: top;">
+                         <button type="submit" class="btn btn-primary">Busca</button>
+                     </form>
+                </li>
+
+
+
+                <div class="container"></div>
+
+                {% if object_list %}
+                    <table class="table-striped">
+                        <thead>
+                        <tr>
+                            <th>Endereço</th>
+                            <th>Numero</th>
+                            <th>bairro</th>
+                            <th>Cidade</th>
+                        </tr>
+                        </thead>
+                        <tbody>
+                        {% for object in object_list %}
+                            <tr>
+                                <td>
+                                    <a href="{{ object.get_absolute_url }}">{{object.rua}}</a>
+                                </td>
+                                <td>{{object.numero}}</td>
+                                <td>{{object.bairro}}</td>
+                                <td>{{object.cidade}}</td>
+                            </tr>
+                        {% endfor %}
+                        </tbody>
+                    </table>
+                {% else %}
+                    <p class="alert alert-warning">Não existem endereços nesta lista ou foi digitada incorretamente!</p>
+                {% endif %}
+              </div>
+          </div>
+         {% include "includes/pagination.html" %}
+     </div>
+</body>
+
+{% endblock %}

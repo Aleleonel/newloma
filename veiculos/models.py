@@ -1,6 +1,7 @@
 from django.db import models
 from django.urls import reverse_lazy
 
+# from clientes.models import Cliente
 from rastreadores.models import Rastreador
 
 
@@ -23,6 +24,7 @@ class Veiculos(models.Model):
     renavam = models.CharField(max_length=11, null=False, blank=False)
     cor = models.CharField(max_length=25, choices=COR_CHOICES, null=False, blank=False)
     rastreador = models.OneToOneField(Rastreador, on_delete=models.SET_NULL, null=True)
+    # clientes = models.ForeignKey(Cliente, on_delete=models.SET_NULL, null=True)
 
     class Meta:
         db_table = 'veiculos'

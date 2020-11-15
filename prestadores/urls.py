@@ -21,4 +21,6 @@ urlpatterns = [
     path('', include('buscaprest.urls')),
     path('rastreadores/', include('rastreadores.urls')),
     path('veiculos/', include('veiculos.urls')),
+    path('enderecos/', include('endereco.urls')),
+    path('clientes/', include('clientes.urls')),
 ]
