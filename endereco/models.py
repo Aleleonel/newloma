@@ -18,4 +18,4 @@ class Endereco(models.Model):
         return self.rua
 
     def get_absolute_url(self):
-        return reverse_lazy('endereco:endereco_detail', kwargs={'pk': self.pk})
+        return reverse_lazy('endereco:enderecos_detail', kwargs={'pk': self.pk})
