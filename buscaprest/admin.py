@@ -1,3 +1,15 @@
 from django.contrib import admin
+from .models import Prestador
 
-# Register your models here.
+
+@admin.register(Prestador)
+class Prestador(admin.ModelAdmin):
+    list_display = [
+        'categoria',
+        'prestador',
+        'endereco',
+        'bairro',
+        'cidade',
+        'cep'
+
+    ]

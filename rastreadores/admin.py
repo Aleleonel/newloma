@@ -1,3 +1,11 @@
 from django.contrib import admin
+from .models import Rastreador
 
-# Register your models here.
+
+@admin.register(Rastreador)
+class RatreadorAdmin(admin.ModelAdmin):
+    list_display = [
+        'nr_rastreador',
+        'marca',
+        'uso',
+    ]

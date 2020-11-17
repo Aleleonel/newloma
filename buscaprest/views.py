@@ -31,7 +31,7 @@ def my_static(request, pk):
         }
         return render(request, template_name, context)
 
-
+#
 # class PrestadoresList(ListView):
 #     model = Prestador
 #     template_name = 'buscaprest/buscaprest_lista.html'
