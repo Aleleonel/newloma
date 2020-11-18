@@ -1,3 +1,4 @@
+from django.contrib.auth.decorators import login_required
 from django.http import HttpResponseRedirect
 from django.shortcuts import render, get_object_or_404
 from django.views.generic import CreateView, UpdateView
@@ -5,6 +6,7 @@ from .forms import VeiculosForm
 from .models import Veiculos
 
 
+@login_required(login_url='/login/')
 def lista_search(request):
     template_name = 'veiculos/veiculos_lista.html'
     search = request.GET.get('search')
@@ -34,6 +36,7 @@ def lista_search(request):
         return render(request, template_name, context)
 
 
+@login_required(login_url='/login/')
 def veiculos_detail(request, pk):
     template_name = 'veiculos/veiculos_detail.html'
     obj = Veiculos.objects.get(pk=pk)
@@ -44,11 +47,13 @@ def veiculos_detail(request, pk):
     return render(request, template_name, context)
 
 
+@login_required(login_url='/login/')
 def veiculos_add(request):
     template_name = 'veiculos/veiculos_form.html'
     return render(request, template_name)
 
 
+@login_required(login_url='/login/')
 def veiculos_delete(request, pk):
     veiculo = get_object_or_404(Veiculos, pk=pk)
     veiculo.delete()

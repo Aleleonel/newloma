@@ -1,3 +1,4 @@
+from django.contrib.auth.decorators import login_required
 from django.http import HttpResponseRedirect
 from django.shortcuts import render, get_object_or_404
 from django.views.generic import CreateView, UpdateView
@@ -5,6 +6,7 @@ from .forms import RastreadorForm
 from .models import Rastreador
 
 
+@login_required(login_url='/login/')
 def lista_search(request):
     template_name = 'rastreadores/rastreadores_lista.html'
     search = request.GET.get('search')
@@ -24,6 +26,7 @@ def lista_search(request):
         return render(request, template_name, context)
 
 
+@login_required(login_url='/login/')
 def rastreadores_detail(request, pk):
     template_name = 'rastreadores/rastreadores_detail.html'
     obj = Rastreador.objects.get(pk=pk)
@@ -34,11 +37,13 @@ def rastreadores_detail(request, pk):
     return render(request, template_name, context)
 
 
+@login_required(login_url='/login/')
 def rastreadores_add(request):
     template_name = 'rastreadores/rastreadores_form.html'
     return render(request, template_name)
 
 
+@login_required(login_url='/login/')
 def rastreadores_delete(request, pk):
     rastreador = get_object_or_404(Rastreador, pk=pk)
     rastreador.delete()

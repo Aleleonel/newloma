@@ -1,50 +1,80 @@
+{% extends "base2.html" %}
 {% load static %}
 {% block css %}
 {% endblock css %}
 
 {% block content %}
 
-<link rel="stylesheet" type="text/css"  href="{% static 'core/css/style.css' %}" />
-<meta name="viewport" content="width=device-width, initial-scale=1">
-<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
 
-<body>
-	 <div class="jumbotron">
-          <div class="container">
-                <div class="page-header">
-                    <h1>Login</h1>
+<link href="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+<script src="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js"></script>
+<script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+<!------ Include the above in your HEAD tag ---------->
 
-                    <div class="container mt-4">
-                        <form action="submit", method="POST">
-                            {% csrf_token %}
-                            <h2>Controle de Prestadores</h2>
+	<title>Login Page</title>
+   <!--Made with love by Mutiullah Samim -->
 
-                            <div class="form-group">
-                                <labe for="username">Usuário</labe>
-                                <input type="text", class="form-control" id="username" name="username"
-                                    placeholder="Digite seu nome de usuário">
-                            </div>
+	<!--Bootsrap 4 CDN-->
+	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css"
+		  integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO"
+		  crossorigin="anonymous">
 
-                            <div class="form-group">
-                                <labe for="password">Senha</labe>
-                                <input type="password", class="form-control" id="password" name="password"
-                                    placeholder="Digite sua senha">
-                            </div>
+    <!--Fontawesome CDN-->
+	<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.3.1/css/all.css"
+		  integrity="sha384-mzrmE5qonljUremFsqc01SB46JvROS7bZs3IO2EmfFsd15uHvIt+Y8vEf7N7fWAU"
+		  crossorigin="anonymous">
 
-                            <div>
-                                {% for message in messages %}
-                                    <div class="alert alert-danger">
-                                      <strong>Atenção!</strong> {{ message }}
-                                    </div>
-                                {% endfor %}
-                                <button type="submit" class="btn btn-success">Logar</button>
+	<!--Custom styles-->
+    <link rel="stylesheet" type="text/css"  href="{% static 'core/css/style.css' %}" />
 
-                            </div>
+<div class="container">
+	<div class="d-flex justify-content-center h-100">
+		<div class="card">
+			<div class="card-header">
+				<h3>Entrar</h3>
+				<div class="d-flex justify-content-end social_icon">
+					<span><i class="fab fa-facebook-square"></i></span>
+					<span><i class="fab fa-google-plus-square"></i></span>
+					<span><i class="fab fa-twitter-square"></i></span>
+				</div>
+			</div>
+			<div class="card-body">
+				<form action="submit" method="POST">
+					{% csrf_token %}
+					<div class="input-group form-group">
+						<div class="input-group-prepend">
+							<span class="input-group-text"><i class="fas fa-user"></i></span>
+						</div>
+						<input name="username" type="text" class="form-control" placeholder="Seu usuário aqui...">
 
-                        </form>
-                    </div>
-                </div>
-          </div>
-     </div>
-</body>
+					</div>
+					<div class="input-group form-group">
+						<div class="input-group-prepend">
+							<span class="input-group-text"><i class="fas fa-key"></i></span>
+						</div>
+						<input name="password" type="password" class="form-control" placeholder="Sua senha aqui...">
+					</div>
+
+					<div class="form-group">
+						{% for message in messages %}
+							<div class="alert alert-danger">
+								<strong>Atenção!</strong>{{ message }}
+							</div>
+						{% endfor %}
+						<input type="submit" value="Login" class="btn float-right login_btn">
+					</div>s
+				</form>
+			</div>
+			<div class="card-footer">
+				<div class="d-flex justify-content-center links">
+					Você não tem uma conta?<a href="#">Cadastre-se</a>
+				</div>
+				<div class="d-flex justify-content-center">
+					<a href="#">Esqueceu sua senha?</a>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+
 {% endblock content %}

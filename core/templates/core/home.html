@@ -1,13 +1,17 @@
 {% extends "base.html" %}
-
+{% load static %}
 {% block content %}
-  <div class="jumbotron">
+
+<link rel="stylesheet" type="text/css"  href="{% static 'core/css/style.css' %}" />
+<body>
+	 <div class="jumbotron">
       <div class="container">
           <h1>Bem vindo!</h1>
-        <p>Este é um sistema de controle de Rastreadores e Oficinas</p>
+          <p><strong>Este é um sistema de controle de Oficinas e Rastreadores</strong></p>
         <p>
           <a href="https://github.com/Aleleonel">Veja no Github</a>
         </p>
       </div>
   </div>
+</body>
 {% endblock content %}

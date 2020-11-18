@@ -1,3 +1,4 @@
+from django.contrib.auth.decorators import login_required
 from django.http import HttpResponseRedirect
 from django.shortcuts import render, get_object_or_404, redirect
 from django.urls import reverse
@@ -10,16 +11,13 @@ import pycep_correios
 from pycep_correios.excecoes import ExcecaoPyCEPCorreios
 
 
-def home(request):
-    template_name = 'buscaprest/home.html'
-    return render(request, template_name)
-
-
+@login_required(login_url='/login/')
 def error(request):
     template_name = 'buscaprest/error.html'
     return render(request, template_name)
 
 
+@login_required(login_url='/login/')
 def my_static(request, pk):
     template_name = 'buscaprest/estatico.html'
     objects = Prestador.objects.get(pk=pk)
@@ -31,13 +29,8 @@ def my_static(request, pk):
         }
         return render(request, template_name, context)
 
-#
-# class PrestadoresList(ListView):
-#     model = Prestador
-#     template_name = 'buscaprest/buscaprest_lista.html'
-#     paginate_by = 10
 
-
+@login_required(login_url='/login/')
 def lista_search(request):
     template_name = 'buscaprest/buscaprest_lista.html'
     search = request.GET.get('search')
@@ -58,6 +51,7 @@ def lista_search(request):
         return render(request, template_name, context)
 
 
+@login_required(login_url='/login/')
 def prestadores_detail(request, pk):
     template_name = 'buscaprest/buscaprest_detail.html'
     obj = Prestador.objects.get(pk=pk)
@@ -75,11 +69,13 @@ def prestadores_detail(request, pk):
         return HttpResponseRedirect('/')
 
 
+@login_required(login_url='/login/')
 def prestadores_add(request):
     template_name = 'buscaprest/buscaprest_form.html'
     return render(request, template_name)
 
 
+@login_required(login_url='/login/')
 def prestadores_delete(request, pk):
     prestador = get_object_or_404(Prestador, pk=pk)
     prestador.delete()

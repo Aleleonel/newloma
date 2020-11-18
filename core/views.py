@@ -1,10 +1,14 @@
-
-
-from django.contrib.auth import authenticate, login
 from django.contrib import messages
-
+from django.contrib.auth import authenticate, login
+from django.contrib.auth.decorators import login_required
 from django.shortcuts import render, redirect
 from django.views.decorators.csrf import csrf_protect
+
+
+@login_required(login_url='/login/')
+def home(request):
+    template_name = 'core/home.html'
+    return render(request, template_name)
 
 
 def login_user(request):
@@ -13,15 +17,19 @@ def login_user(request):
 
 
 @csrf_protect
-def login_submit(request):
-
+def submit_login(request):
     if request.POST:
         username = request.POST.get('username')
         password = request.POST.get('password')
+
+        print(username)
+        print(password)
         user = authenticate(username=username, password=password)
         if user is not None:
             login(request, user)
-            return redirect('/login/#')
+            return redirect('/')
         else:
-            messages.error(request, "Usuário inválidos, por favor tente novamente!")
+            messages.error(request, "Usuarios e senha inválidos.")
+
     return redirect('/login/')
+

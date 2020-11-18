@@ -1,3 +1,4 @@
+from django.contrib.auth.decorators import login_required
 from django.http import HttpResponseRedirect
 from django.shortcuts import render, get_object_or_404
 from django.views.generic import CreateView, UpdateView
@@ -5,6 +6,7 @@ from .forms import EnderecoForm
 from .models import Endereco
 
 
+@login_required(login_url='/login/')
 def lista_search(request):
     template_name = 'endereco/enderecos_lista.html'
     search = request.GET.get('search')
@@ -24,6 +26,7 @@ def lista_search(request):
         return render(request, template_name, context)
 
 
+@login_required(login_url='/login/')
 def endereco_detail(request, pk):
     template_name = 'endereco/enderecos_detail.html'
     obj = Endereco.objects.get(pk=pk)
@@ -34,11 +37,13 @@ def endereco_detail(request, pk):
     return render(request, template_name, context)
 
 
+@login_required(login_url='/login/')
 def endereco_add(request):
     template_name = 'endereco/enderecos_form.html'
     return render(request, template_name)
 
 
+@login_required(login_url='/login/')
 def endereco_delete(request, pk):
     rastreador = get_object_or_404(Endereco, pk=pk)
     rastreador.delete()
