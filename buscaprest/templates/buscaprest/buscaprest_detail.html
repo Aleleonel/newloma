@@ -44,12 +44,24 @@
                     <td>{{local.cidade}}</td>
                 </tr>
                 <tr>
-                    <th class="text-right">UP</th>
+                    <th class="text-right">UF</th>
                     <td>{{local.uf}}</td>
                 </tr>
                 <tr>
                     <th class="text-right">CEP</th>
                     <td>{{local.cep}}</td>
+                </tr>
+                <tr>
+                    <th class="text-right">E-mail</th>
+                    <td>{{object.email}}</td>
+                </tr>
+                <tr>
+                    <th class="text-right">Telefone1</th>
+                    <td>{{object.telefone1}}</td>
+                </tr>
+                <tr>
+                    <th class="text-right">Telefone2</th>
+                    <td>{{object.telefone2}}</td>
                 </tr>
 
             {% else %}
@@ -77,6 +89,14 @@
                 <tr>
                     <th class="text-right">CEP</th>
                     <td>{{object.cep}}</td>
+                </tr>
+                <tr>
+                    <th class="text-right">E-mail</th>
+                    <td>{{object.email}}</td>
+                </tr>
+                <tr>
+                    <th class="text-right">Telefone</th>
+                    <td>{{object.telefone1}}</td>
                 </tr>
                 <tr>
                     <th class="text-right">Telefone</th>

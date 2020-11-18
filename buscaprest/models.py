@@ -16,6 +16,8 @@ class Prestador(models.Model):
     bairro = models.CharField(max_length=60, null=True, blank=True)
     cidade = models.CharField(max_length=60, null=True, blank=True)
     cep = models.CharField(max_length=60, null=True, blank=True)
+    email = models.EmailField()
+    telefone1 = models.CharField(max_length=60, null=True, blank=True)
     telefone2 = models.CharField(max_length=60, null=True, blank=True)
 
     class Meta:

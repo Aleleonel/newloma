@@ -46,7 +46,6 @@
                         <tr>
                             <th>Nome</th>
                             <th>CPF</th>
-                            <th>Veículo</th>
                             <th>Data de Cadastro</th>
                         </tr>
                         </thead>
@@ -57,7 +56,6 @@
                                     <a href="{{ object.get_absolute_url }}">{{object.nome}}</a>
                                 </td>
                                 <td>{{object.cpf}}</td>
-                                <td>{{object.veiculo}}</td>
                                 <td>{{object.cadastro}}</td>
                             </tr>
                         {% endfor %}
