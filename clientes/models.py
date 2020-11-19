@@ -23,7 +23,6 @@ class Cliente(models.Model):
 
     class Meta:
         db_table = 'cliente'
-        # ordering = ["-id"]
 
     def __str__(self):
         return self.nome
