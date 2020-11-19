@@ -2,7 +2,6 @@ from django.db import models
 from django.urls import reverse_lazy
 
 from endereco.models import Endereco
-from veiculos.models import Veiculos
 
 
 class Cliente(models.Model):
@@ -20,12 +19,10 @@ class Cliente(models.Model):
     contato = models.CharField(max_length=50, null=False, blank=False, unique=True)
     vtipo = models.CharField(max_length=6, choices=VEICULO_CHOICES, blank=False, null=False)
     endereco = models.OneToOneField(Endereco, on_delete=models.SET_NULL, null=True)
-    veiculo = models.OneToOneField(Veiculos, on_delete=models.SET_NULL, null=True)
     cadastro = models.DateField(auto_now=True, null=True, blank=True)
 
     class Meta:
         db_table = 'cliente'
-        # ordering = ["-id"]
 
     def __str__(self):
         return self.nome

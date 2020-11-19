@@ -1,0 +1,21 @@
+{% extends "account/base_account.html" %}
+
+{% block content %}
+
+<body>
+	 <div class="jumbotron">
+      <div class="container">
+          <form classe="form-signin" method="POST">
+                {% csrf_token %}
+                    {{ form.as_p }}
+                <button class="btn btn-lg btn-primary btn-block" type="submit">
+                    Registrar
+                </button>
+    </form>
+
+      </div>
+  </div>
+</body>
+
+
+{% endblock %}

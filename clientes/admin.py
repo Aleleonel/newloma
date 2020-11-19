@@ -14,6 +14,5 @@ class ClienteAdmin(admin.ModelAdmin):
         'contato',
         'vtipo',
         'endereco',
-        'veiculo',
         'cadastro'
     ]
