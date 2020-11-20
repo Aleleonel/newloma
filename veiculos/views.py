@@ -1,4 +1,5 @@
 from django.contrib.auth.decorators import login_required
+from django.core.paginator import Paginator
 from django.http import HttpResponseRedirect
 from django.shortcuts import render, get_object_or_404
 from django.views.generic import CreateView, UpdateView
@@ -29,7 +30,12 @@ def lista_search(request):
         return render(request, template_name, context)
 
     else:
-        objects_list = Veiculos.objects.all()
+        lista = Veiculos.objects.all()
+
+        paginator = Paginator(lista, 10)
+        page = request.GET.get('page')
+        objects_list = paginator.get_page(page)
+
         context = {
             'object_list': objects_list
         }
