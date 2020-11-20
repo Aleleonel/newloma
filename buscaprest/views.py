@@ -1,7 +1,6 @@
 from django.contrib.auth.decorators import login_required
 from django.http import HttpResponseRedirect
 from django.shortcuts import render, get_object_or_404, redirect
-from django.urls import reverse
 from django.views.generic import CreateView, UpdateView, ListView
 from django.core.paginator import Paginator
 from .forms import PrestadorForm
@@ -44,7 +43,12 @@ def lista_search(request):
         }
         return render(request, template_name, context)
     else:
-        objects_list = Prestador.objects.all()
+        lista = Prestador.objects.all().order_by('categoria')
+
+        paginator = Paginator(lista, 10)
+        page = request.GET.get('page')
+        objects_list = paginator.get_page(page)
+
         context = {
             'object_list': objects_list
         }
