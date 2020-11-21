@@ -14,29 +14,34 @@
             <li class="nav-item">
                     <a class="nav-link" href="{% url 'buscaprest:buscaprest_lista' %}">Oficinas</a>
             </li>
+            <li class="nav-item">
+                    <a class="nav-link" href="{% url 'instalacao:instalacao_list' %}">Instações</a>
+            </li>
+
+
 
             <li class="nav-item dropdown">
-                <a class="nav-link dropdown-toggle" href="#" id="dropdown01" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Rastreadores</a>
+                <a class="nav-link dropdown-toggle" href="#" id="dropdown01" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Clientes</a>
                 <div class="dropdown-menu" aria-labelledby="dropdown01">
-                    <a class="dropdown-item" href="{% url 'veiculos:veiculos_lista' %}">Veiculos</a>
-                    <a class="dropdown-item" href="{% url 'rastreadores:rastreadores_lista' %}">Rastreadores</a>
+                    <a class="dropdown-item" href="{% url 'endereco:enderecos_lista' %}">1.1 - Endereço</a>
+                    <a class="dropdown-item" href="{% url 'clientes:clientes_lista' %}">1.2 - Clientes</a>
+
+
                 </div>
             </li>
 
-            <li class="nav-item dropdown">
-                <a class="nav-link dropdown-toggle" href="#" id="dropdown02" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Clientes</a>
+             <li class="nav-item dropdown">
+                <a class="nav-link dropdown-toggle" href="#" id="dropdown02" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Rastreadores</a>
                 <div class="dropdown-menu" aria-labelledby="dropdown02">
-                    <a class="dropdown-item" href="{% url 'clientes:clientes_lista' %}">Clientes</a>
-                    <a class="dropdown-item" href="{% url 'endereco:enderecos_lista' %}">Endereço</a>
-
+                    <a class="dropdown-item" href="{% url 'rastreadores:rastreadores_lista' %}"> 1.1 - Rastreadores</a>
+                    <a class="dropdown-item" href="{% url 'veiculos:veiculos_lista' %}">1.2 - Veiculos</a>
                 </div>
             </li>
 
             <li class="nav-item dropdown">
                 <a class="nav-link dropdown-toggle" href="#" id="dropdown03" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Registro</a>
                 <div class="dropdown-menu" aria-labelledby="dropdown03">
-                    <a class="dropdown-item" href="#">Oficinas</a>
-                    <a class="dropdown-item" href="#">Rastreadores</a>
+                    <a class="dropdown-item" href="#">Instaladores</a>
                     <a class="dropdown-item" href="{% url 'account:registrar' %}">Registro</a>
                 </div>
             </li>

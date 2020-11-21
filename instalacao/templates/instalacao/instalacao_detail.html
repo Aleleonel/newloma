@@ -1,0 +1,38 @@
+{% extends "base.html" %}
+
+{% block content %}
+<a href="{% url 'instalacao:instalacao_list' %}">Voltar</a>
+
+<div class="col-sm-6">
+    <table class="table table-user-information">
+
+            <tbody>
+                <tr>
+                    <th class="text-right">Cliente</th>
+                    <td>{{object.ins_cliente}}</td>
+                </tr>
+                <tr>
+                    <th class="text-right">Placa</th>
+                    <td>{{object.inst_placa}}</td>
+                </tr>
+                <tr>
+                    <th class="text-right">Nr.Contrato</th>
+                    <td>{{object.ins_contrato}}</td>
+                </tr>
+                <tr>
+                    <th class="text-right">Data Solicitação</th>
+                    <td>{{object.inst_data}}</td>
+                </tr>
+                <tr>
+                    <th class="text-right">Vendedor</th>
+                    <td>{{object.inst_solicitante}}</td>
+                </tr>
+                <tr>
+                    <th class="text-right">País</th>
+                    <td>{{object.pais}}</td>
+                </tr>
+            </tbody>
+    </table>
+
+</div>
+{% endblock content %}
