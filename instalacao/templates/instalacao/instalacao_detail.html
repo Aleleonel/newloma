@@ -2,34 +2,62 @@
 
 {% block content %}
 <a href="{% url 'instalacao:instalacao_list' %}">Voltar</a>
+    <h1>{{ object }}
+        <span class="pull-right">
+            <a href="{% url 'instalacao:instalacao_edit' object.pk  %}">
+                <button type="button" class="btn btn-success">
+                    <span class="fa fa-pencil"></span> Editar
+                </button>
+            </a>
+        </span>
+    </h1>
+<span class="pull-right">
+    <a href="{% url 'instalacao:instalacao_delete' object.pk  %}">
+        <button type="button" class="btn btn-danger">
+            <span class="fa fa-pencil"></span> Deletar
+        </button>
+    </a>
+</span>
 
 <div class="col-sm-6">
     <table class="table table-user-information">
 
             <tbody>
                 <tr>
-                    <th class="text-right">Cliente</th>
+                    <th class="text-right">Cliente:</th>
                     <td>{{object.ins_cliente}}</td>
                 </tr>
                 <tr>
-                    <th class="text-right">Placa</th>
+                    <th class="text-right">Placa:</th>
                     <td>{{object.inst_placa}}</td>
                 </tr>
                 <tr>
-                    <th class="text-right">Nr.Contrato</th>
+                    <th class="text-right">Nr.Contrato:</th>
                     <td>{{object.ins_contrato}}</td>
                 </tr>
                 <tr>
-                    <th class="text-right">Data Solicitação</th>
+                    <th class="text-right">Data Solicitação:</th>
                     <td>{{object.inst_data}}</td>
                 </tr>
                 <tr>
-                    <th class="text-right">Vendedor</th>
-                    <td>{{object.inst_solicitante}}</td>
+                    <th class="text-right">Vendedor:</th>
+                    <td>{{object.vendedor}}</td>
                 </tr>
                 <tr>
-                    <th class="text-right">País</th>
-                    <td>{{object.pais}}</td>
+                    <th class="text-right">Instalador:</th>
+                    <td>{{object.inst_instalador}}</td>
+                </tr>
+                <tr>
+                    <th class="text-right">Instalado em:</th>
+                    <td>{{object.inst_data_fim}}</td>
+                </tr>
+                <tr>
+                    <th class="text-right">Instalado:</th>
+                    <td>{{object.instalado}}</td>
+                </tr>
+                <tr>
+                    <th class="text-right">Observações:</th>
+                    <td>{{object.inst_obs}}</td>
                 </tr>
             </tbody>
     </table>

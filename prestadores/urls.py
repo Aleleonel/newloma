@@ -24,10 +24,14 @@ urlpatterns = [
 
     path('prestadores/', include('buscaprest.urls')),
     path('rastreadores/', include('rastreadores.urls')),
+
     path('veiculos/', include('veiculos.urls')),
     path('enderecos/', include('endereco.urls')),
     path('clientes/', include('clientes.urls')),
+
     path('instalacao/', include('instalacao.urls')),
+    path('instaladores/', include('instaladores.urls')),
+
     path('admin/', admin.site.urls),
 
     path('account/', include('account.urls')),

@@ -12,9 +12,9 @@
 	 <div class="jumbotron">
       <div class="container">
             <div class="page-header">
-                <h1>Instalações
+                <h1>Instaladores
                     <span class="pull-right">
-                        <a href="{% url 'instalacao:instalacao_add' %}">
+                        <a href="{% url 'instaladores:instaladores_add' %}">
                             <button type="button" class="btn btn-primary">
                                 <span class="fa fa-plus"></span>Adicionar
                             </button>
@@ -32,16 +32,7 @@
                            aria-owns="algolia-autocomplete-listbox-0"
                            dir="auto" style="position: relative;
                            vertical-align: top;">
-                         <button type="submit" class="btn btn-primary">Placa</button>
-
-                         <input name="search2" type="search" class="form-control ds-input" id="#"
-                           placeholder="Pesquisa..." aria-label="Procurar por..."
-                           autocomplete="off" spellcheck="false" role="combobox"
-                           aria-autocomplete="list" aria-expanded="false"
-                           aria-owns="algolia-autocomplete-listbox-0"
-                           dir="auto" style="position: relative;
-                           vertical-align: top;">
-                         <button type="submit" class="btn btn-primary">Status</button>
+                         <button type="submit" class="btn btn-primary">Busca</button>
                      </form>
                 </li>
 
@@ -51,31 +42,25 @@
                     <table class="table-striped">
                         <thead>
                         <tr>
-                            <th>Associado</th>
-                            <th>Placa</th>
-                            <th>Nr. do Contrato</th>
-                            <th>Solicitado em:</th>
-                            <th>Vendedor:</th>
-                            <th>Instalado:</th>
+                            <th>Instalador</th>
+                            <th>Telefone01</th>
+                            <th>Telefone02</th>
                         </tr>
                         </thead>
                         <tbody>
                         {% for object in object_list %}
                             <tr>
                                 <td>
-                                    <a href="{{ object.get_absolute_url }}">{{object.ins_cliente}}</a>
+                                    <a href="{{ object.get_absolute_url }}">{{object.nome}}</a>
                                 </td>
-                                <td>{{object.inst_placa}}</td>
-                                <td>{{object.ins_contrato}}</td>
-                                <td>{{object.inst_data}}</td>
-                                <td>{{object.vendedor}}</td>
-                                <td>{{object.instalado}}</td>
+                                <td>{{object.tel01}}</td>
+                                <td>{{object.tel02}}</td>
                             </tr>
                         {% endfor %}
                         </tbody>
                     </table>
                 {% else %}
-                    <p class="alert alert-warning">Não existem Instalações nesta lista ou foi digitada incorretamente!</p>
+                    <p class="alert alert-warning">Não existem Instaladores nesta lista ou foi digitada incorretamente!</p>
                 {% endif %}
               </div>
           </div>
