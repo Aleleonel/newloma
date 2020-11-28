@@ -50,6 +50,7 @@ INSTALLED_APPS = [
     'clientes',
     'endereco',
     'account',
+    'instaladores',
 ]
 
 MIDDLEWARE = [
