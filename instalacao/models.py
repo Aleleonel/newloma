@@ -1,7 +1,15 @@
 from django.db import models
 from django.urls import reverse_lazy
-
 from instaladores.models import Instaladores
+
+import uuid
+import os
+
+
+def get_file_path(instance, filename):
+    ext = filename.split(".")[-1]
+    filename = "%s.%s" % (uuid.uuid4(), ext)
+    return os.path.join('photos_vistorias', filename)
 
 
 class Instalacao(models.Model):
@@ -28,6 +36,7 @@ class Instalacao(models.Model):
     instalado = models.CharField(max_length=8, null=True, choices=INSTALADO_CHOICES, default=INSTALADO_CHOICES[1][1])
     vistoria = models.CharField(max_length=8, null=True, choices=VISTORIA_CHOICES, default=VISTORIA_CHOICES[1][1])
     obs = models.TextField('Observação', max_length=300, null=True, blank=True)
+    imagens = models.FileField(upload_to=get_file_path)
 
     class Meta:
         db_table = 'instalacao'

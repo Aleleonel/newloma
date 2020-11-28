@@ -51,7 +51,20 @@ def instalacao_detail(request, pk):
 @login_required(login_url='/login/')
 def instalacao_add(request):
     template_name = 'instalacao/instalacao_form.html'
-    return render(request, template_name)
+
+    if request.method == "POST":
+        form = InstalacaoForm(request.POST, request.FILES)
+        if form.is_valid():
+            form.save()
+            # return HttpResponseRedirect('/')
+            return render(request, template_name)
+    else:
+        form = InstalacaoForm()
+        context = {
+            'form': form
+        }
+
+    return render(request, template_name, context)
 
 
 @login_required(login_url='/login/')
