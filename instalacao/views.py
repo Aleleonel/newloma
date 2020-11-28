@@ -14,7 +14,7 @@ def instalacao_list(request):
     search2 = request.GET.get('search2')
 
     if search:
-        objects_list = Instalacao.objects.filter(inst_placa__icontains=search)
+        objects_list = Instalacao.objects.filter(placa__icontains=search)
         context = {
             'object_list': objects_list
         }
@@ -26,7 +26,7 @@ def instalacao_list(request):
         }
         return render(request, template_name, context)
     else:
-        lista = Instalacao.objects.all().order_by('inst_placa')
+        lista = Instalacao.objects.all().order_by('placa')
         paginator = Paginator(lista, 10)
         page = request.GET.get('page')
         objects_list = paginator.get_page(page)

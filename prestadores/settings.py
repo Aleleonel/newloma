@@ -50,13 +50,9 @@ INSTALLED_APPS = [
     'clientes',
     'endereco',
     'account',
-<<<<<<< HEAD
     'instalacao',
-    'instaladores'
-=======
     'instaladores',
->>>>>>> busca
-]
+    ]
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',

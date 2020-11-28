@@ -51,25 +51,29 @@
                     <table class="table-striped">
                         <thead>
                         <tr>
-                            <th>Associado</th>
+                            <th>Cliente</th>
                             <th>Placa</th>
-                            <th>Nr. do Contrato</th>
-                            <th>Solicitado em:</th>
-                            <th>Vendedor:</th>
-                            <th>Instalado:</th>
+                            <th>Celular</th>
+                            <th>Solicitado em</th>
+                            <th>Instalador</th>
+                            <th>Vendedor</th>
+                            <th>Instalado</th>
+
                         </tr>
                         </thead>
                         <tbody>
                         {% for object in object_list %}
                             <tr>
                                 <td>
-                                    <a href="{{ object.get_absolute_url }}">{{object.ins_cliente}}</a>
+                                    <a href="{{ object.get_absolute_url }}">{{object.cliente}}</a>
                                 </td>
-                                <td>{{object.inst_placa}}</td>
-                                <td>{{object.ins_contrato}}</td>
-                                <td>{{object.inst_data}}</td>
+                                <td>{{object.placa}}</td>
+                                <td>{{object.tel01}}</td>
+                                <td>{{object.data}}</td>
+                                <td>{{object.instalador}}</td>
                                 <td>{{object.vendedor}}</td>
                                 <td>{{object.instalado}}</td>
+
                             </tr>
                         {% endfor %}
                         </tbody>
