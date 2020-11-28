@@ -3,13 +3,13 @@ from django.core.paginator import Paginator
 from django.http import HttpResponseRedirect
 from django.shortcuts import render, get_object_or_404
 from django.views.generic import CreateView, UpdateView
+from .forms import InstaladoresForm
+from .models import Instaladores
 
-from instaladores.forms import InstaladoresForm
-from instaladores.models import Instaladores
 
-
-def instaladores_list(request):
-    template_name = 'instaladores/instaladores_list.html'
+@login_required(login_url='/login/')
+def lista_search(request):
+    template_name = 'instaladores/instaladores_lista.html'
     search = request.GET.get('search')
 
     if search:

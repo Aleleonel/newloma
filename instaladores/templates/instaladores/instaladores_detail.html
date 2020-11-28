@@ -2,41 +2,62 @@
 
 {% block content %}
 <a href="{% url 'instaladores:instaladores_list' %}">Voltar</a>
+    <h1>{{ object }}
+        <span class="pull-right">
+            <a href="{% url 'instaladores:instaladores_edit' object.pk  %}">
+                <button type="button" class="btn btn-success">
+                    <span class="fa fa-pencil"></span> Editar
+                </button>
+            </a>
+        </span>
+    </h1>
+<span class="pull-right">
+    <a href="{% url 'instaladores:instaladores_delete' object.pk  %}">
+        <button type="button" class="btn btn-danger">
+            <span class="fa fa-pencil"></span> Deletar
+        </button>
+    </a>
+</span>
 
 <div class="col-sm-6">
     <table class="table table-user-information">
 
             <tbody>
                 <tr>
-                    <th class="text-right">Instalador:</th>
+                    <th class="text-right">Instalador</th>
                     <td>{{object.nome}}</td>
                 </tr>
                 <tr>
-                    <th class="text-right">CPF:</th>
+                    <th class="text-right">CPF</th>
                     <td>{{object.cpf}}</td>
                 </tr>
                 <tr>
-                    <th class="text-right">RG.:</th>
+                    <th class="text-right">R.G</th>
                     <td>{{object.rg}}</td>
                 </tr>
+
                 <tr>
-                    <th class="text-right">Telefone01:</th>
-                    <td>{{object.tel01}}</td>
-                </tr>
-                <tr>
-                    <th class="text-right">Telefone02:</th>
-                    <td>{{object.tel02}}</td>
-                </tr>
-                <tr>
-                    <th class="text-right">E-mail:</th>
-                    <td>{{object.email}}</td>
-                </tr>
-                <tr>
-                    <th class="text-right">Endereço:</th>
+                    <th class="text-right">Endereço</th>
                     <td>{{object.endereco}}</td>
                 </tr>
                 <tr>
-                    <th class="text-right">Preco:</th>
+                    <th class="text-right">Número</th>
+                    <td>{{object.numero}}</td>
+                </tr>
+                <tr>
+                    <th class="text-right">Celular</th>
+                    <td>{{object.tel01}}</td>
+                </tr>
+                <tr>
+                    <th class="text-right">Residencial</th>
+                    <td>{{object.tel02}}</td>
+                </tr>
+                <tr>
+                    <th class="text-right">E-mail</th>
+                    <td>{{object.email}}</td>
+                </tr>
+                <tr>
+                    <th class="text-right">Preço</th>
                     <td>{{object.preco}}</td>
                 </tr>
             </tbody>

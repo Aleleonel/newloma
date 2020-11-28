@@ -28,10 +28,14 @@ urlpatterns = [
     path('veiculos/', include('veiculos.urls')),
     path('enderecos/', include('endereco.urls')),
     path('clientes/', include('clientes.urls')),
+<<<<<<< HEAD
 
     path('instalacao/', include('instalacao.urls')),
     path('instaladores/', include('instaladores.urls')),
 
+=======
+    path('instaladores/', include('instaladores.urls')),
+>>>>>>> busca
     path('admin/', admin.site.urls),
 
     path('account/', include('account.urls')),
