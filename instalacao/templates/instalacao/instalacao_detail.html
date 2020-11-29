@@ -69,7 +69,10 @@
                 </tr>
                 <tr>
                     <th class="text-right">Imagens:</th>
-                    <td>{{object.imagens}}</td>
+                    <td>
+                        <a href="{{ object.get_abs_url }}">{{object.imagens}}</a>
+                    </td>
+
                 </tr>
             </tbody>
     </table>

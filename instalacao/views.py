@@ -37,6 +37,17 @@ def instalacao_list(request):
         return render(request, template_name, context)
 
 
+def fotos_lista(request, pk):
+    template_name = 'instalacao/fotos_list.html'
+    objects_list = Instalacao.objects.get(pk=pk)
+
+    context = {
+        'object_list': objects_list
+    }
+
+    return render(request, template_name, context)
+
+
 @login_required(login_url='/login/')
 def instalacao_detail(request, pk):
     template_name = 'instalacao/instalacao_detail.html'

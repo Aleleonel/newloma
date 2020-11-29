@@ -46,3 +46,6 @@ class Instalacao(models.Model):
 
     def get_absolute_url(self):
         return reverse_lazy('instalacao:instalacao_detail', kwargs={'pk': self.pk})
+
+    def get_abs_url(self):
+        return reverse_lazy('instalacao:fotos_list', kwargs={'pk': self.pk})

@@ -3,7 +3,8 @@ from . import views as v
 app_name = 'instalacao'
 
 urlpatterns = [
-    path('lista', v.instalacao_list, name='instalacao_list' ),
+    path('lista/', v.instalacao_list, name='instalacao_list'),
+    path('fotos/<int:pk>/', v.fotos_lista, name='fotos_list'),
 
     path('add/', v.InstalacaoCreate.as_view(), name='instalacao_add'),
     path('<int:pk>/', v.instalacao_detail, name='instalacao_detail'),

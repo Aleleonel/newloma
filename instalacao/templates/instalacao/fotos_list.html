@@ -1,0 +1,59 @@
+{% extends "base.html" %}
+{% load static %}
+{% block css %}
+{% endblock css %}
+
+{% block content %}
+
+<link rel="stylesheet" type="text/css"  href="{% static 'instalacao/css/style.css' %}" />
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+<body>
+	 <div class="jumbotron">
+      <div class="container">
+          <a href="{% url 'instalacao:instalacao_list' %}">Voltar</a>
+            <div class="page-header">
+                <h1>Fotos</h1>
+
+                <div class="container"></div>
+
+                {% if object_list %}
+                    <table class="table-striped">
+                        <thead>
+                        <tr>
+                            <th>Imagens:</th>
+                        </tr>
+                        </thead>
+                        <tbody>
+
+                            <tr>
+                                <td><img src="/media/{{object_list.imagens}}" alt=""width="200" height="200"></td>
+                            </tr>
+
+                        </tbody>
+                    </table>
+                {% else %}
+                    <p class="alert alert-warning">Não existem Imagens nesta lista ou foi digitada incorretamente!</p>
+                {% endif %}
+              </div>
+          </div>
+        <div class="pagination">
+             <span class="step-links">
+                 {% if object_list.has_previous %}
+                    <a href="?page={{ object_list.previous_page_number }}"><i class="fa fa-arrow-left"></i></a>
+                 {% endif %}
+
+                 <span class="current">
+                     {{ object_list.number }} de {{ object_list.paginator.num_pages }}
+                 </span>
+
+                 {% if object_list.has_next %}
+                    <a href="?page={{ object_list.next_page_number }}"><i class="fa fa-arrow-right"></i></a>
+                 {% endif %}
+             </span>
+         </div>
+     </div>
+</body>
+
+{% endblock %}
